@@ -1,0 +1,29 @@
+﻿@model RealEstateMVC.Models.HomeIndexViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Home</h1>
+
+<div class="container">
+    <form asp-action="Index" method="get"><!--Select list for counties-->
+        Counties: 
+        <select style="-moz-appearance: menulist;" size="1" asp-for="County" asp-items="Model.County">
+            <option value="">All</option>
+        </select>
+        <input type="submit" value="Filter" />
+    </form>
+    <h4>Houses</h4>
+    <hr/>
+    @foreach(HouseViewModel houseVM in Model.Houses)
+    {
+        <div class="house col-3">
+            <a asp-action="Details" asp-route-id="@houseVM.house.Id">
+                <img src="@houseVM.Images[0].ImageDataUrl" />
+            </a><br />
+            <label>Price: </label> @Html.DisplayFor(modelItem => houseVM.house.Price) <br />
+            <label>Address: </label> @Html.DisplayFor(modelItem => houseVM.house.Address)
+        </div>
+    }
+</div>

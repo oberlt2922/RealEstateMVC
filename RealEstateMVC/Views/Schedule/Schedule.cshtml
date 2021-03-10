@@ -1,0 +1,13 @@
+﻿@model RealEstateMVC.Models.House
+
+@{
+    ViewData["Title"] = "Schedule";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>@TempData["name"], you have scheduled a viewing of the house at @Model.Address on @TempData["date"] at @TempData["time"].</p><br />
+<p>An email has been sent to you at @TempData["email"].</p>
+
+<form asp-action="Index">
+    <input type="submit" value="Continue" />
+</form>

@@ -1,0 +1,45 @@
+﻿@model RealEstateMVC.Models.HouseViewModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutHouse.cshtml";
+}
+
+<h4>Schedule Viewing</h4>
+
+@section schedule
+{
+<div class="container">
+    <form asp-action="Schedule" asp-route-id="@Model.house.Id" method="get">
+        <div class="row">
+            <div class="col-1">
+                <label>Name: </label>
+            </div>
+            <div class="col-3">
+                <input type="text" name="name" />
+            </div>
+            <div class="col-1">
+                <label>Email: </label>
+            </div>
+            <div class="col-3">
+                <input type="email" name="email" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1">
+                <label>Date: </label>
+            </div>
+            <div class="col-3">
+                <input type="date" name="date" />
+            </div>
+            <div class="col-1">
+                <label>Time: </label>
+            </div>
+            <div class="col-3">
+                <input type="time" name="time" />
+            </div>
+        </div>
+        <input type="submit" value="Schedule" />
+    </form>
+</div>
+} 

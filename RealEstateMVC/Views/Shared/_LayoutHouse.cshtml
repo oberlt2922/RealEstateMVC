@@ -1,0 +1,103 @@
+﻿@model RealEstateMVC.Models.HouseViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="container col-6">
+        <!--Slideshow-->
+        @foreach (Image image in Model.Images)
+        {
+            <div class="mySlides">
+                <img src="@image.ImageDataUrl" />
+            </div>
+        }
+        <button id="prevButton" onclick="plusSlides(-1)">&#10094</button>
+        <button id="nextButton" onclick="plusSlides(1)">&#10095</button>
+    </div>
+    <div class="container col-6"><!--Details-->
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2><strong>@Html.DisplayFor(Model => Model.house.Price)</strong></h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <strong>@Html.DisplayNameFor(model => model.house.County):</strong>
+            </div>
+            <div>
+                @Html.DisplayFor(Model => Model.house.County)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <strong>@Html.DisplayNameFor(model => model.house.Bed):</strong>
+            </div>
+            <div>
+                @Html.DisplayFor(Model => Model.house.Bed)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <strong>@Html.DisplayNameFor(model => model.house.Bath):</strong>
+            </div>
+            <div>
+                @Html.DisplayFor(Model => Model.house.Bath)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <strong>@Html.DisplayNameFor(model => model.house.SquareFeet):</strong>
+            </div>
+            <div>
+                @Html.DisplayFor(Model => Model.house.SquareFeet)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <strong>@Html.DisplayNameFor(model => model.house.Address):</strong>
+            </div>
+            <div>
+                @Html.DisplayFor(Model => Model.house.Address)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <strong>@Html.DisplayNameFor(model => model.house.City):</strong>
+            </div>
+            <div>
+                @Html.DisplayFor(Model => Model.house.City)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <strong>@Html.DisplayNameFor(model => model.house.Zip):</strong>
+            </div>
+            <div>
+                @Html.DisplayFor(Model => Model.house.Zip)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <strong>@Html.DisplayNameFor(model => model.house.State):</strong>
+            </div>
+            <div>
+                @Html.DisplayFor(Model => Model.house.State)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <strong>@Html.DisplayNameFor(model => model.house.NextOpenHouse):</strong>
+            </div>
+            <div>
+                @Html.DisplayFor(Model => Model.house.NextOpenHouse)
+            </div>
+        </div>
+    </div>
+</div>
+
+@RenderBody()
+<!--delete button, update button, and file input control-->
+@RenderSection("admin", false)
+@RenderSection("schedule", false)
