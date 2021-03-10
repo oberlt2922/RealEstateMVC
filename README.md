@@ -1,2 +1,31 @@
 # RealEstateMVC
- 
+A real estate website using ASP.NET Core MVC and Entity Framework Core
+
+
+This website has a home page with a select element that displays houses depending on the county that is selected.
+When the use clicks on a house they are brought to a details page that has slideshow with right and left buttons, the buttons use javascript to change the visible image.
+This page also displays the rest of the house's information.
+
+The admin page also has a select element that displays houses in a table based on the county selected.
+The admin can select a house or create a new house.
+Selecting a house displays a similar page to the details page except it also has an update and delete button.
+when the update button is clicked, the admin is redirected to a page that has text boxes, an file input control, and a button to delete the visible image in the slideshow.
+
+The schedule page shows a list of houses in a table.
+When a house is selected the user can schedule a viewing of the house by entering their information.
+
+I am currently working to add more features to the site and make the design more practical.
+
+I want to add a login feature
+When a user views a house from the home page, ther will be a link so they can schedule a viewing of the house.  This way they do not have to go to the schedule page and 
+search for houses by county.
+When an admin views a house from the home page, the update and delete buttons will be displayed.
+
+I want to use a SmartyStreets API to validate the address when a house is inserted or updated.
+
+I also would like to use some kind of map API so that users can see the hosues location on a map.
+
+I plan to add the database to AWS
+
+
+Currently every database call has it's own method to avoid repeating C# code, i also used sublayouts with @rendersections so i could avoid repeating HTML code
