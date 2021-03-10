@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9UajGyDoHRxshYSOo1khl2+Pe4RScsckamXQ2jjwuX+2zgAuROkyNQMF7MdAcmCMVDf3uPl01iSyZ4iIJy2eaw==",
+  "dgSpecHash": "mmGcHHUO8YFLHmYi6p1AmAJDDLnZNyWDdxEBiNFmn0v1eA0i79KzY9bCHJFcP+HfJQKGkz9CdVAe6NQeUINBdA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\oberl\\Documents\\My Web Sites\\RealEstateMVC\\RealEstateMVC\\RealEstateMVC.csproj",
+  "projectFilePath": "C:\\Users\\oberl\\Documents\\GitHub\\RealEstateMVC\\RealEstateMVC\\RealEstateMVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\oberl\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\oberl\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

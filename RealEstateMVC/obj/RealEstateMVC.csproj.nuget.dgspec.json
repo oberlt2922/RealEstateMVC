@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\oberl\\Documents\\My Web Sites\\RealEstateMVC\\RealEstateMVC\\RealEstateMVC.csproj": {}
+    "C:\\Users\\oberl\\Documents\\GitHub\\RealEstateMVC\\RealEstateMVC\\RealEstateMVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\oberl\\Documents\\My Web Sites\\RealEstateMVC\\RealEstateMVC\\RealEstateMVC.csproj": {
+    "C:\\Users\\oberl\\Documents\\GitHub\\RealEstateMVC\\RealEstateMVC\\RealEstateMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\oberl\\Documents\\My Web Sites\\RealEstateMVC\\RealEstateMVC\\RealEstateMVC.csproj",
+        "projectUniqueName": "C:\\Users\\oberl\\Documents\\GitHub\\RealEstateMVC\\RealEstateMVC\\RealEstateMVC.csproj",
         "projectName": "RealEstateMVC",
-        "projectPath": "C:\\Users\\oberl\\Documents\\My Web Sites\\RealEstateMVC\\RealEstateMVC\\RealEstateMVC.csproj",
+        "projectPath": "C:\\Users\\oberl\\Documents\\GitHub\\RealEstateMVC\\RealEstateMVC\\RealEstateMVC.csproj",
         "packagesPath": "C:\\Users\\oberl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\oberl\\Documents\\My Web Sites\\RealEstateMVC\\RealEstateMVC\\obj\\",
+        "outputPath": "C:\\Users\\oberl\\Documents\\GitHub\\RealEstateMVC\\RealEstateMVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
