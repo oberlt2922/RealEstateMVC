@@ -41,13 +41,16 @@ namespace RealEstateMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,County,Price,Bed,Bath,SquareFeet,Address,City,State,Zip,NextOpenHouse")] House house)
+        public async Task<IActionResult> Create([Bind("Id,County,Price,Bed,Bath,SquareFeet,Address,City,State,Zip")] House house, string date, string time)
         {
             if (ModelState.IsValid && USStreetSingleAddress.ValidateAddress(house.Address, house.City, house.State, house.Zip) == true)
             {
                 //capitalize first letter of county
                 string firstLetter = house.County.Substring(0, 1).ToUpper();
                 house.County = firstLetter + house.County.Substring(1);
+
+                DateTime openHouseDate = Convert.ToDateTime(date + " " + time);
+                house.NextOpenHouse = openHouseDate;
 
                 //add house
                 _context.Add(house);
@@ -86,7 +89,7 @@ namespace RealEstateMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,County,Price,Bed,Bath,SquareFeet,Address,City,State,Zip,NextOpenHouse")] House house)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,County,Price,Bed,Bath,SquareFeet,Address,City,State,Zip")] House house, string date, string time)
         {
             if (id != house.Id)
             {
@@ -101,6 +104,9 @@ namespace RealEstateMVC.Controllers
                     //capitalize first letter of county
                     string firstLetter = house.County.Substring(0, 1).ToUpper();
                     house.County = firstLetter + house.County.Substring(1);
+
+                    DateTime openHouseDate = Convert.ToDateTime(date + " " + time);
+                    house.NextOpenHouse = openHouseDate;
 
                     //update house
                     _context.Update(house);

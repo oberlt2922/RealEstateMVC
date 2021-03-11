@@ -10,7 +10,7 @@ The admin page also has a select element that displays houses in a table based o
 The admin can select a house or create a new house.
 Selecting a house displays a similar page to the details page except it also has an update and delete button.
 when the update button is clicked, the admin is redirected to a page that has text boxes, an file input control, and a button to delete the visible image in the slideshow.
-I used the smartystreets API on the create and edit paged to ensure that the entered address, city, state, and zip code belong to a USPS-verified address.
+I used a smartystreets API on the create and edit paged to ensure that the entered address, city, state, and zip code belong to a USPS-verified address.
 
 The schedule page shows a list of houses in a table.
 When a house is selected the user can schedule a viewing of the house by entering their information.

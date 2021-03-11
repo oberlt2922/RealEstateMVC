@@ -1,5 +1,3 @@
-change datetime text box to seperate date and time input elements, combine the two values into one datetime to be inserted into the database
-
 validate street address using SmartyStreets API
 	environment variables
 	auto complete
