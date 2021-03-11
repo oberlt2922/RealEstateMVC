@@ -9,12 +9,12 @@
 <h4>House</h4>
 <hr />
 <div class="row">
-    <div class="container col-6">
+    <div class="container col-7">
         <!--Slideshow-->
         @foreach (Image image in Model.Images)
         {
             <div class="mySlides" id="@image.Id">
-                <img src="@image.ImageDataUrl" />
+                <img height="359" src="@image.ImageDataUrl" />
             </div>
         }
         <button id="prevButton" onclick="plusSlides(-1)">&#10094</button>
@@ -26,7 +26,7 @@
 
         <button id="nextButton" onclick="plusSlides(1)">&#10095</button>
     </div>
-    <div class="container col-6">
+    <div class="container col-5">
         <form asp-action="Edit" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="@Model.house.Id" />

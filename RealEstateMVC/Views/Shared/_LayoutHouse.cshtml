@@ -5,23 +5,24 @@
 }
 
 <div class="row">
-    <div class="container col-6">
+    <div class="container col-7">
         <!--Slideshow-->
         @foreach (Image image in Model.Images)
         {
             <div class="mySlides">
-                <img src="@image.ImageDataUrl" />
+                <img height="359" src="@image.ImageDataUrl" />
             </div>
         }
         <button id="prevButton" onclick="plusSlides(-1)">&#10094</button>
         <button id="nextButton" onclick="plusSlides(1)">&#10095</button>
     </div>
-    <div class="container col-6"><!--Details-->
+    <div class="container col-5"><!--Details-->
         <div class="row">
-            <div class="col-12 text-center">
+            <div >
                 <h2><strong>@Html.DisplayFor(Model => Model.house.Price)</strong></h2>
             </div>
         </div>
+        <br />
         <div class="row">
             <div class="col-4">
                 <strong>@Html.DisplayNameFor(model => model.house.County):</strong>
