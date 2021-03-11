@@ -354,3 +354,4 @@ C:\Users\oberl\Documents\GitHub\RealEstateMVC\RealEstateMVC\obj\Debug\net5.0\Rea
 C:\Users\oberl\Documents\GitHub\RealEstateMVC\RealEstateMVC\obj\Debug\net5.0\ref\RealEstateMVC.dll
 C:\Users\oberl\Documents\GitHub\RealEstateMVC\RealEstateMVC\obj\Debug\net5.0\RealEstateMVC.pdb
 C:\Users\oberl\Documents\GitHub\RealEstateMVC\RealEstateMVC\obj\Debug\net5.0\RealEstateMVC.genruntimeconfig.cache
+C:\Users\oberl\Documents\GitHub\RealEstateMVC\RealEstateMVC\bin\Debug\net5.0\smartystreets-dotnet-sdk.dll

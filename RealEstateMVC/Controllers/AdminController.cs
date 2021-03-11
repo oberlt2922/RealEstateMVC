@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using RealEstateMVC.Data;
 using RealEstateMVC.Models;
+using SmartyStreets;
+using SmartyStreets.USStreetApi;
 
 namespace RealEstateMVC.Controllers
 {
@@ -41,7 +43,7 @@ namespace RealEstateMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,County,Price,Bed,Bath,SquareFeet,Address,City,State,Zip,NextOpenHouse")] House house)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && USStreetSingleAddress.ValidateAddress(house.Address, house.City, house.State, house.Zip) == true)
             {
                 //capitalize first letter of county
                 string firstLetter = house.County.Substring(0, 1).ToUpper();
@@ -53,6 +55,11 @@ namespace RealEstateMVC.Controllers
 
                 //add images
                 InsertImages(house);
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Invalid address";
+                return View(house);
             }
             return RedirectToAction(nameof(Index));
         }
@@ -86,7 +93,7 @@ namespace RealEstateMVC.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && USStreetSingleAddress.ValidateAddress(house.Address, house.City, house.State, house.Zip) == true)
             {
                 try
                 {
@@ -115,7 +122,11 @@ namespace RealEstateMVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(await House.getHouse(_context, (int)id));
+            else
+            {
+                TempData["ErrorMessage"] = "Invalid address";
+                return View(await House.getHouse(_context, (int)id));
+            }
         }
 
         // GET: Admin/Delete/5
@@ -194,6 +205,68 @@ namespace RealEstateMVC.Controllers
 
                 _context.Image.Add(img);
                 _context.SaveChanges();
+            }
+        }
+    }
+
+
+
+    //smartystreets API class
+    internal static class USStreetSingleAddress
+    {
+        public static bool ValidateAddress(string address, string city, string state, string zip)
+        {
+            var authId = "3b8cd07b-869e-5e06-d27d-011dedb1c644";
+            var authToken = "0nCivko6yDuLOiGFsq1T";
+
+            /* We recommend storing your keys in environment variables instead---it's safer!
+            var authId = Environment.GetEnvironmentVariable("SMARTY_AUTH_ID");
+            var authToken = Environment.GetEnvironmentVariable("SMARTY_AUTH_TOKEN");*/
+
+            var client = new ClientBuilder(authId, authToken)
+                //.WithCustomBaseUrl("us-street.api.smartystreets.com")
+                //.ViaProxy("http://localhost:8080", "username", "password") // uncomment this line to point to the specified proxy.
+                .BuildUsStreetApiClient();
+
+            // Documentation for input fields can be found at:
+            // https://smartystreets.com/docs/us-street-api#input-fields
+
+            var lookup = new Lookup
+            {
+                Street = address,
+                City = city,
+                State = state,
+                ZipCode = zip,
+                MatchStrategy = Lookup.STRICT // "invalid" is the most permissive match,
+                                               // this will always return at least one result even if the address is invalid.
+                                               // Refer to the documentation for additional MatchStrategy options.
+            };
+
+            try
+            {
+                client.Send(lookup);
+            }
+            catch (SmartyException ex)
+            {
+                //handle exceptions
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
+            catch (IOException ex)
+            {
+                //handle exceptions
+                Console.WriteLine(ex.StackTrace);
+            }
+
+            var candidates = lookup.Result;
+
+            if (candidates.Count == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
     }

@@ -10,6 +10,7 @@ The admin page also has a select element that displays houses in a table based o
 The admin can select a house or create a new house.
 Selecting a house displays a similar page to the details page except it also has an update and delete button.
 when the update button is clicked, the admin is redirected to a page that has text boxes, an file input control, and a button to delete the visible image in the slideshow.
+I used the smartystreets API on the create and edit paged to ensure that the entered address, city, state, and zip code belong to a USPS-verified address.
 
 The schedule page shows a list of houses in a table.
 When a house is selected the user can schedule a viewing of the house by entering their information.
@@ -21,11 +22,13 @@ When a user views a house from the home page, ther will be a link so they can sc
 search for houses by county.
 When an admin views a house from the home page, the update and delete buttons will be displayed.
 
-I want to use a SmartyStreets API to validate the address when a house is inserted or updated.
+The error message that is displayed when an address is invalid is crude and I want to make it more visually appealing and change where it appears.
 
 I also would like to use some kind of map API so that users can see the hosues location on a map.
 
 I plan to add the database to AWS
+
+I still have a lot of work to do when it comes to styling.
 
 
 Currently every database call has it's own method to avoid repeating C# code, i also used sublayouts with @rendersections so i could avoid repeating HTML code
