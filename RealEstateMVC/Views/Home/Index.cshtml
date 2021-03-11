@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1>Houses</h1>
@@ -18,9 +19,9 @@
     <br />
     @foreach(HouseViewModel houseVM in Model.Houses)
     {
-        <div class="house col-3">
+        <div>
             <a asp-action="Details" asp-route-id="@houseVM.house.Id">
-                <img src="@houseVM.Images[0].ImageDataUrl" />
+                <img width="400" src="@houseVM.Images[0].ImageDataUrl" />
             </a><br />
             <label>Price: </label> @Html.DisplayFor(modelItem => houseVM.house.Price) <br />
             <label>Address: </label> @Html.DisplayFor(modelItem => houseVM.house.Address)
