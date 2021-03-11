@@ -16,9 +16,10 @@
         <button id="prevButton" onclick="plusSlides(-1)">&#10094</button>
         <button id="nextButton" onclick="plusSlides(1)">&#10095</button>
     </div>
-    <div class="container col-5"><!--Details-->
+    <div class="container col-5">
+        <!--Details-->
         <div class="row">
-            <div >
+            <div>
                 <h2><strong>@Html.DisplayFor(Model => Model.house.Price)</strong></h2>
             </div>
         </div>
@@ -95,10 +96,10 @@
                 @Html.DisplayFor(Model => Model.house.NextOpenHouse)
             </div>
         </div>
+        @RenderSection("admin", false)
     </div>
 </div>
 
 @RenderBody()
 <!--delete button, update button, and file input control-->
-@RenderSection("admin", false)
 @RenderSection("schedule", false)

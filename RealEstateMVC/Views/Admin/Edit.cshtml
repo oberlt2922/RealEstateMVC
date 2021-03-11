@@ -17,14 +17,19 @@
                 <img height="359" src="@image.ImageDataUrl" />
             </div>
         }
+    <div class="row">
+        <div class="col-2">
         <button id="prevButton" onclick="plusSlides(-1)">&#10094</button>
-        <!--pass house id and image id-->
-        <form asp-action="DeleteImage" asp-route-id="@Model.house.Id" method="post">
-            <input id="imageId" type="hidden" name="imageId" value="" />
-            <input type="submit" onclick="deleteImage()" value="Delete Image" />
-        </form>
-
         <button id="nextButton" onclick="plusSlides(1)">&#10095</button>
+        </div>
+        <!--pass house id and image id-->
+        <div class="col-2">
+            <form asp-action="DeleteImage" asp-route-id="@Model.house.Id" method="post">
+                <input id="imageId" type="hidden" name="imageId" value="" />
+                <input type="submit" onclick="deleteImage()" value="Delete Image" />
+            </form>
+        </div>
+    </div>
     </div>
     <div class="container col-5">
         <form asp-action="Edit" method="post" enctype="multipart/form-data">
