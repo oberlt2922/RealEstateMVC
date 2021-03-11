@@ -923,6 +923,15 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "smartystreets-dotnet-sdk/8.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/smartystreets-dotnet-sdk.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/smartystreets-dotnet-sdk.dll": {}
+        }
+      },
       "SQLitePCLRaw.bundle_e_sqlite3/2.0.4": {
         "type": "package",
         "dependencies": {
@@ -3803,6 +3812,20 @@
         "lib/netstandard1.0/_._",
         "runtime.native.system.4.3.0.nupkg.sha512",
         "runtime.native.system.nuspec"
+      ]
+    },
+    "smartystreets-dotnet-sdk/8.8.0": {
+      "sha512": "ArYfwNhA3XAvlQHV/873PgKTSoMf88HdiMDDW43S5mzunyDP8Yvye4/A0vguOvdEbYBmybXZGJTD48GH0Y41Nw==",
+      "type": "package",
+      "path": "smartystreets-dotnet-sdk/8.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/smartystreets-dotnet-sdk.dll",
+        "lib/net40/smartystreets-dotnet-sdk.dll",
+        "lib/netstandard2.0/smartystreets-dotnet-sdk.dll",
+        "smartystreets-dotnet-sdk.8.8.0.nupkg.sha512",
+        "smartystreets-dotnet-sdk.nuspec"
       ]
     },
     "SQLitePCLRaw.bundle_e_sqlite3/2.0.4": {
@@ -7466,7 +7489,8 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.3",
       "Microsoft.EntityFrameworkCore.Sqlite >= 5.0.3",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.3",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2",
+      "smartystreets-dotnet-sdk >= 8.8.0"
     ]
   },
   "packageFolders": {
@@ -7530,6 +7554,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[5.0.2, )"
+          },
+          "smartystreets-dotnet-sdk": {
+            "target": "Package",
+            "version": "[8.8.0, )"
           }
         },
         "imports": [
