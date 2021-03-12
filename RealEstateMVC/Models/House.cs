@@ -15,42 +15,42 @@ namespace RealEstateMVC.Models
         public int Id { get; set; }
 
         [Required]
-        [RegularExpression(@"^[a-zA-Z\s]*$")]
+        [RegularExpression(@"^[a-zA-Z\s]*$", ErrorMessage = "County cannot contain numbers or special characters.")]
         public string County { get; set; }
         
         [Required]
-        [RegularExpression(@"^[0-9]*$")]
+        [RegularExpression(@"^[0-9]*$", ErrorMessage = "Bed field has to be a whole number")]
         public int Bed { get; set; }
         
         [Required]
-        [RegularExpression(@"^[0-9]{1,2}(\.5)?")]
+        [RegularExpression(@"^[0-9]{1,2}(\.5)?", ErrorMessage = "Bath must be a whole number, or end in \".5\".")]
         public int Bath { get; set; }
         
         [Required]
         [Display(Name = "Square Feet")]
-        [RegularExpression(@"[0-9]*")]
+        [RegularExpression(@"[0-9]*", ErrorMessage = "Square feet must be a whole number.")]
         public int SquareFeet { get; set; }
         
         [Required]
         [DataType(DataType.Currency)]
         [DisplayFormat(DataFormatString = "{0:C0}", ApplyFormatInEditMode = false)]
-        [RegularExpression(@"[0-9]*")]
+        [RegularExpression(@"[0-9]*", ErrorMessage = "Price must be a whole number.")]
         public int Price { get; set; }
         
         [Required]
         public string Address { get; set; }
         
         [Required]
-        [RegularExpression(@"^[A-Za-z\s]*$")]
+        [RegularExpression(@"^[A-Za-z\s]*$", ErrorMessage = "City must not contain numbers or special characters.")]
         public string City { get; set; }
         
         [Required]
-        [RegularExpression(@"[A-Za-z]{2}")]
+        [RegularExpression(@"[A-Za-z]{2}", ErrorMessage = "State must be two letters.")]
         public string State { get; set; }
         
         [Required]
         [DataType(DataType.PostalCode)]
-        [RegularExpression(@"^[0-9]{5}(-[0-9]{4})?$")]
+        [RegularExpression(@"^[0-9]{5}(-[0-9]{4})?$", ErrorMessage = "Must be a valid zip code.")]
         public string Zip { get; set; }
         
         [DataType(DataType.DateTime)]
