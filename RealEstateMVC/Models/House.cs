@@ -53,6 +53,7 @@ namespace RealEstateMVC.Models
         [RegularExpression(@"^[0-9]{5}(-[0-9]{4})?$", ErrorMessage = "Must be a valid zip code.")]
         public string Zip { get; set; }
         
+        [Required]
         [DataType(DataType.DateTime)]
         [Display(Name = "Next Open House")]
         public DateTime NextOpenHouse { get; set; }

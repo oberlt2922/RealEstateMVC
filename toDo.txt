@@ -1,7 +1,6 @@
 validate street address using SmartyStreets API
 	environment variables
 	auto complete
-	error message
 
 google map api to show house location on map
 

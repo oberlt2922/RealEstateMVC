@@ -61,7 +61,8 @@ namespace RealEstateMVC.Controllers
             }
             else
             {
-                TempData["ErrorMessage"] = "Invalid address";
+                TempData["ErrorMessage"] = "The property that you entered does not exist.\n" +
+                    "Please ensure that the street address, city, state, and zip code you enter are valid.";
                 return View(house);
             }
             return RedirectToAction(nameof(Index));
@@ -130,7 +131,8 @@ namespace RealEstateMVC.Controllers
             }
             else
             {
-                TempData["ErrorMessage"] = "Invalid address";
+                TempData["ErrorMessage"] = "The property that you entered does not exist.\n" +
+                    "Please ensure that the street address, city, state, and zip code you enter are valid.";
                 return View(await House.getHouse(_context, (int)id));
             }
         }
@@ -222,20 +224,10 @@ namespace RealEstateMVC.Controllers
     {
         public static bool ValidateAddress(string address, string city, string state, string zip)
         {
-            var authId = "3b8cd07b-869e-5e06-d27d-011dedb1c644";
-            var authToken = "0nCivko6yDuLOiGFsq1T";
+            var authId = Environment.GetEnvironmentVariable("SMARTY_AUTH_ID", EnvironmentVariableTarget.Machine);
+            var authToken = Environment.GetEnvironmentVariable("SMARTY_AUTH_TOKEN", EnvironmentVariableTarget.Machine);
 
-            /* We recommend storing your keys in environment variables instead---it's safer!
-            var authId = Environment.GetEnvironmentVariable("SMARTY_AUTH_ID");
-            var authToken = Environment.GetEnvironmentVariable("SMARTY_AUTH_TOKEN");*/
-
-            var client = new ClientBuilder(authId, authToken)
-                //.WithCustomBaseUrl("us-street.api.smartystreets.com")
-                //.ViaProxy("http://localhost:8080", "username", "password") // uncomment this line to point to the specified proxy.
-                .BuildUsStreetApiClient();
-
-            // Documentation for input fields can be found at:
-            // https://smartystreets.com/docs/us-street-api#input-fields
+            var client = new ClientBuilder(authId, authToken).BuildUsStreetApiClient();
 
             var lookup = new Lookup
             {
@@ -243,9 +235,7 @@ namespace RealEstateMVC.Controllers
                 City = city,
                 State = state,
                 ZipCode = zip,
-                MatchStrategy = Lookup.STRICT // "invalid" is the most permissive match,
-                                               // this will always return at least one result even if the address is invalid.
-                                               // Refer to the documentation for additional MatchStrategy options.
+                MatchStrategy = Lookup.STRICT
             };
 
             try
