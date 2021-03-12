@@ -3,6 +3,9 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    string divId;
+    int i = 0;
+    int y;
 }
 
 <h1>Houses</h1>
@@ -19,9 +22,25 @@
     <br />
     @foreach(HouseViewModel houseVM in Model.Houses)
     {
-        <div>
+        y = 0;
+        i++;
+        divId = "house" + i.ToString() + "Images";
+        <div class="col-6">
             <a asp-action="Details" asp-route-id="@houseVM.house.Id">
-                <img width="400" src="@houseVM.Images[0].ImageDataUrl" />
+                <div id="@divId" onmouseover='StartSlideShow("@divId")' onmouseout='StopSlideShow()'>
+                    @foreach (Image image in houseVM.Images)
+                    {
+                        @if (y == 0)
+                        {
+                            <img width="400" src="@houseVM.Images[y].ImageDataUrl" />
+                        }
+                        else
+                        {
+                            <img style="display: none;" width="400" src="@houseVM.Images[y].ImageDataUrl" />
+                        }
+                        y++;
+                    }
+                </div>
             </a><br />
             <label>Price: </label> @Html.DisplayFor(modelItem => houseVM.house.Price) <br />
             <label>Address: </label> @Html.DisplayFor(modelItem => houseVM.house.Address)
