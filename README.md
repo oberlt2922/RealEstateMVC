@@ -3,6 +3,7 @@ A real estate website using ASP.NET Core MVC and Entity Framework Core
 
 
 This website has a home page with a select element that displays houses depending on the county that is selected.
+When the user hovers the mouse over an image, a slideshow starts.  When the mouse moves away from the slideshow, the slideshow stops.  I used javascript for this.
 When the use clicks on a house they are brought to a details page that has slideshow with right and left buttons, the buttons use javascript to change the visible image.
 This page also displays the rest of the house's information.
 

@@ -5,8 +5,6 @@ validate street address using SmartyStreets API
 	
 custom error messages
 
-hovering on image home page
-
 google map api to show house location on map
 
 sign in 
