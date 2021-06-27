@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <None Include="wwwroot\css\StyleSheet.css" />
+    <None Include="wwwroot\Images\real-estate-banner-1.jpg" />
   </ItemGroup>
 
   <ItemGroup>
