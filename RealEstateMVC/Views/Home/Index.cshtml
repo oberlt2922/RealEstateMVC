@@ -10,7 +10,7 @@
 
 <h1>Houses</h1>
 
-<div class="container">
+<div class="container" style="overflow:hidden">
     <form asp-action="Index" method="get">
         <!--Select list for counties-->
         Counties:
@@ -25,7 +25,7 @@
         y = 0;
         i++;
         divId = "house" + i.ToString() + "Images";
-        <div class="col-6">
+        <div class="col-6" style="display:block; float: left;">
             <a asp-action="Details" asp-route-id="@houseVM.house.Id">
                 <div id="@divId" onmouseover='StartSlideShow("@divId")' onmouseout='StopSlideShow()'>
                     @foreach (Image image in houseVM.Images)
