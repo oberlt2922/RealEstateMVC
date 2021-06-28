@@ -9,20 +9,20 @@
 </head>
 <body>
     <header>
-    <!--nav bar-->
+        <!--banner-->
+        <a href="@Url.Action("Index", "Home")">
+            <img src="@Url.Content("~/Images/real-estate-banner-1.jpg")" style="width: 100%" />
+        </a>
+        <!--nav bar-->
         <nav>
             <div class="container">
-                <ul style="list-style-type: none;">
-                    <li style="display:inline-block;" class="col-2"><a asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li style="display:inline-block;" class="col-2"><a asp-controller="Admin" asp-action="Index">Admin</a></li>
-                    <li style="display:inline-block;" class="col-2"><a asp-controller="Schedule" asp-action="Index">Schedule</a></li>
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li style="display:inline-block;" class="col-1"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li style="display:inline-block;" class="col-1"><a asp-controller="Admin" asp-action="Index">Admin</a></li>
+                    <li style="display:inline-block;" class="col-1"><a asp-controller="Schedule" asp-action="Index">Schedule</a></li>
                 </ul>
             </div>
         </nav>
-    <!--banner-->
-        <a href="@Url.Action("Index", "Home")">
-            <img src="@Url.Content("~/Images/real-estate-banner-1.jpg")" style="width: 100%"/>
-        </a>
     </header>
     <!--main content-->
     <div class="container">
