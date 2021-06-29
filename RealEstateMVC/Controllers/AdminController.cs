@@ -146,8 +146,9 @@ namespace RealEstateMVC.Controllers
             var authToken = Environment.GetEnvironmentVariable("SMARTY_AUTH_TOKEN", EnvironmentVariableTarget.Machine);
 
             var client = new ClientBuilder(authId, authToken).BuildUsAutocompleteApiClient();
-            var lookup = new SmartyStreets.USAutocompleteApi.Lookup("prefix");
+            var lookup = new SmartyStreets.USAutocompleteApi.Lookup(prefix);
             lookup.GeolocateType = "null";
+            lookup.MaxSuggestions = 5;
 
             client.Send(lookup);
 
