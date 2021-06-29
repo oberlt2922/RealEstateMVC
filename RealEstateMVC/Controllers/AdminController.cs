@@ -12,6 +12,7 @@ using RealEstateMVC.Data;
 using RealEstateMVC.Models;
 using SmartyStreets;
 using SmartyStreets.USStreetApi;
+using SmartyStreets.USAutocompleteApi;
 
 namespace RealEstateMVC.Controllers
 {
@@ -137,6 +138,22 @@ namespace RealEstateMVC.Controllers
             }
         }
 
+        //POST: Admin/AutoComplete
+        [HttpPost]
+        public JsonResult AutoComplete(string prefix)
+        {
+            var authId = Environment.GetEnvironmentVariable("SMARTY_AUTH_ID", EnvironmentVariableTarget.Machine);
+            var authToken = Environment.GetEnvironmentVariable("SMARTY_AUTH_TOKEN", EnvironmentVariableTarget.Machine);
+
+            var client = new ClientBuilder(authId, authToken).BuildUsAutocompleteApiClient();
+            var lookup = new SmartyStreets.USAutocompleteApi.Lookup("prefix");
+            lookup.GeolocateType = "null";
+
+            client.Send(lookup);
+
+            return Json(lookup.Result);
+        }
+
         // GET: Admin/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -229,13 +246,13 @@ namespace RealEstateMVC.Controllers
 
             var client = new ClientBuilder(authId, authToken).BuildUsStreetApiClient();
 
-            var lookup = new Lookup
+            var lookup = new SmartyStreets.USStreetApi.Lookup
             {
                 Street = address,
                 City = city,
                 State = state,
                 ZipCode = zip,
-                MatchStrategy = Lookup.STRICT
+                MatchStrategy = SmartyStreets.USStreetApi.Lookup.STRICT
             };
 
             try
