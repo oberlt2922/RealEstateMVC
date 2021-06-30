@@ -58,9 +58,10 @@
                                     city: data.city,
                                     state: data.state,
                                     streetLine: data.streetLine,
-                                    zipcode: data.zipcode,
                                     text: data.text,
-                                    label: item.text
+                                    label: item.text,
+                                    value: item.streetLine,
+                                    data: item
                                 }
                             }))
                         }
@@ -68,10 +69,9 @@
                 },
                 minLength: 2,
                 select: function (event, ui) {
-                    $('#txtAddress').val(ui.item.streetLine);
-                    $('#txtCity').val(ui.item.city);
-                    $('#txtState').val(ui.item.state);
-                    $('#txtZip').val(ui.item.zip);
+                    $('#txtAddress').val(ui.item.value);
+                    $('#txtCity').val(ui.item.data.city);
+                    $('#txtState').val(ui.item.data.state);
                 }
             });
         });
