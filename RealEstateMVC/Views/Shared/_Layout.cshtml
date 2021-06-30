@@ -55,11 +55,12 @@
                         success: function (data) {
                             response($.map(data, function (item) {
                                 return {
-                                    streetline: data.streetline,
                                     city: data.city,
                                     state: data.state,
+                                    streetLine: data.streetLine,
                                     zipcode: data.zipcode,
-                                    label: item.streetline + " " + item.city + ", " + item.state + " " + item.zipcode
+                                    text: data.text,
+                                    label: item.text
                                 }
                             }))
                         }
@@ -67,11 +68,10 @@
                 },
                 minLength: 2,
                 select: function (event, ui) {
-                    $('#txtAddress').val(ui.item.street_line);
+                    $('#txtAddress').val(ui.item.streetLine);
                     $('#txtCity').val(ui.item.city);
                     $('#txtState').val(ui.item.state);
                     $('#txtZip').val(ui.item.zip);
-                    return false;
                 }
             });
         });

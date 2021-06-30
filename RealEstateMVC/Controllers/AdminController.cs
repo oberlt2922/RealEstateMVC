@@ -153,6 +153,8 @@ namespace RealEstateMVC.Controllers
             client.Send(lookup);
 
             return Json(lookup.Result);
+
+            //return Json(lookup.Result);
         }
 
         // GET: Admin/Delete/5
