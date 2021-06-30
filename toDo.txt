@@ -1,6 +1,3 @@
-validate street address using SmartyStreets API
-	auto complete
-
 google map api to show house location on map
 
 sign in 
@@ -13,7 +10,5 @@ sign in
 add schedule link to home details view
 	if user is admin, show update and delete buttons
 	if user is not admin, show schedule link
-
-null imagedataurls
 
 AWS cloud database
