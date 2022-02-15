@@ -1,4 +1,9 @@
 # RealEstateMVC
+My first project using ASP.NET Core MVC
+
+Does not demonstrate my current knowledge and skill with MVC
+
+
 A real estate website using ASP.NET Core MVC and Entity Framework Core
 
 
